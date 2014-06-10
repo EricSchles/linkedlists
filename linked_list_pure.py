@@ -137,3 +137,4 @@ class LinkedList:
         return False
 
 
+#To Do: implement all of these methods:http://docs.oracle.com/javase/7/docs/api/java/util/LinkedList.html
