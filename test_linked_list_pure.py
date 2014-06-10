@@ -34,3 +34,28 @@ def test_add_last():
     ll.add_last(5)
     assert ll.contains(5)  == True
     assert ll.at_index(5) == 2
+
+def test_remove_first():
+    ll = LinkedList([1,2,3,4,5])
+    ll.remove_first()
+    assert ll.contains(1) == False
+    assert ll.at_index(1) == False
+    assert ll.length == 4
+    ll = LinkedList([1])
+    ll.remove_first()
+    assert ll.length == 0
+    assert ll.contains(1) == False
+    assert ll.at_index(1) == False
+    
+
+def test_remove_last():
+    ll = LinkedList([1,2,3,4,5])
+    ll.remove_last()
+    assert ll.contains(5) == False
+    assert ll.at_index(5) == False
+    assert ll.length == 4
+    ll = LinkedList([1])
+    ll.remove_last()
+    assert ll.length == 0
+    assert ll.contains(1) == False
+    assert ll.at_index(1) == False

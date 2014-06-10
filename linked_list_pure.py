@@ -136,5 +136,35 @@ class LinkedList:
             
         return False
 
+    def remove_first(self):
+        if self.length > 0: 
+            curr = self.head 
+            val = curr.item
+            curr = curr.next
+            self.head = curr
+            self.length -= 1
+            return val
+        else:
+            raise Exception("Empty list, cannot remove")
+    
+    def remove_last(self):
+        if self.length > 0:
+            curr = self.head
+            while curr.next != None:
+                curr = curr.next
+            val = curr.item
+            try:
+                prev = curr.prev
+                prev.next = None
+            except AttributeError:
+                pass
+            curr.prev = None
+            curr.next = None
+            curr = None
+            self.length -= 1
+            return val
+        else:
+            raise Exception("Empty list, cannot remove")
+            
 
 #To Do: implement all of these methods:http://docs.oracle.com/javase/7/docs/api/java/util/LinkedList.html
