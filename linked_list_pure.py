@@ -158,6 +158,7 @@ class LinkedList:
                 prev.next = None
             except AttributeError:
                 pass
+            curr.item = None
             curr.prev = None
             curr.next = None
             curr = None
@@ -165,6 +166,59 @@ class LinkedList:
             return val
         else:
             raise Exception("Empty list, cannot remove")
+    
+    def clone(self):
+        curr = self.head
+        listing = []
+        while curr != None:
+            listing.append(curr.item)
+            curr = curr.next
+        return LinkedList(listing)
+
+
+    def iterator(self):
+        curr = self.head
+        return curr
+
+    def peek(self):
+        return self.head.item
+    
+    def peek_last(self):
+        curr = self.head
+        while curr.next != None:
+            curr = curr.next
+        return curr.item
+
+    def remove(self,val):
+        index = self.at_index(val) 
+        if index == False and type(index) == type(bool()):
+            return False
+        curr = self.head
+        if index == 0:
+            self.head = curr.next
+            curr.item = None
+            curr = None
             
+        elif index == self.length:
+            self.head = curr.next
+            while curr.next != None:
+                curr = curr.next
+            prev = curr.prev
+            prev.next = None
+            curr.item = None
+            curr = None
+        elif index < self.length:
+            while index > 0:
+                index -= 1
+                curr = curr.next
+            prev = curr.prev
+            next_thing = curr.next
+            prev.next = next_thing
+            next_thing.prev = prev
+            curr.item = None
+            curr = None
+        
+        
+
 
 #To Do: implement all of these methods:http://docs.oracle.com/javase/7/docs/api/java/util/LinkedList.html

@@ -59,3 +59,51 @@ def test_remove_last():
     assert ll.length == 0
     assert ll.contains(1) == False
     assert ll.at_index(1) == False
+
+def test_clone():
+    ll = LinkedList([1,2,3,4,5])
+    ll_t = ll.clone()
+    assert ll_t.contains(1) == True
+    assert ll_t.contains(2) == True
+    assert ll_t.contains(3) == True
+    assert ll_t.contains(4) == True
+    assert ll_t.contains(5) == True
+    
+
+def test_iterator():
+    listing = [1,2,3,4,5]
+    ll = LinkedList(listing)
+    curr = ll.iterator()
+    iterate = 0
+    while curr != None:
+        assert curr.item == listing[iterate]
+        curr = curr.next
+        iterate += 1
+
+
+def test_peek():
+    ll = LinkedList([1])
+    assert ll.peek() == 1
+    ll = LinkedList([2,1,3])
+    assert ll.peek() == 2
+
+
+def test_peek_last():
+    ll = LinkedList([1,2,3])
+    assert ll.peek_last() == 3
+    ll = LinkedList([1])
+    assert ll.peek_last() == 1
+
+
+def test_remove():
+    ll = LinkedList([1,2,3])
+    ll.remove(1) 
+    assert ll.contains(1) == False
+    assert ll.contains(2) == True
+    assert ll.contains(3) == True
+    ll.remove(2)
+    assert ll.contains(2) == False
+    assert ll.contains(3) == True
+    ll.remove(3)
+    assert ll.contains(3) == False
+    assert ll.remove(5) == False
