@@ -226,5 +226,7 @@ class LinkedList:
             curr = curr.next
         return listing
 
+    def size(self):
+        return self.length
 
 #To Do: implement all of these methods:http://docs.oracle.com/javase/7/docs/api/java/util/LinkedList.html
