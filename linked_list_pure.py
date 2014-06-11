@@ -217,8 +217,14 @@ class LinkedList:
             next_thing.prev = prev
             curr.item = None
             curr = None
-        
-        
+    
+    def to_list(self):
+        listing = []
+        curr = self.head
+        while curr != None:
+            listing.append(curr.item)
+            curr = curr.next
+        return listing
 
 
 #To Do: implement all of these methods:http://docs.oracle.com/javase/7/docs/api/java/util/LinkedList.html

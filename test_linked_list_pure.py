@@ -107,3 +107,12 @@ def test_remove():
     ll.remove(3)
     assert ll.contains(3) == False
     assert ll.remove(5) == False
+
+
+def test_to_list():
+    listing = [1,2,3,4]
+    ll = LinkedList(listing)
+    assert ll.to_list() == listing
+    listing = [1]
+    ll = LinkedList(listing)
+    assert ll.to_list() == listing
