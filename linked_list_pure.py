@@ -119,7 +119,7 @@ class LinkedList:
 
     def contains(self,val):
         curr = self.head
-        while curr != None:
+        while curr:
             if curr.item == val:
                 return True
             curr = curr.next
@@ -128,7 +128,7 @@ class LinkedList:
     def at_index(self,val):
         curr = self.head
         ind = 0
-        while curr != None:
+        while curr:
             if curr.item == val:
                 return ind
             ind += 1
@@ -150,7 +150,7 @@ class LinkedList:
     def remove_last(self):
         if self.length > 0:
             curr = self.head
-            while curr.next != None:
+            while curr.next:
                 curr = curr.next
             val = curr.item
             try:
@@ -170,7 +170,7 @@ class LinkedList:
     def clone(self):
         curr = self.head
         listing = []
-        while curr != None:
+        while curr:
             listing.append(curr.item)
             curr = curr.next
         return LinkedList(listing)
@@ -185,7 +185,7 @@ class LinkedList:
     
     def peek_last(self):
         curr = self.head
-        while curr.next != None:
+        while curr.next:
             curr = curr.next
         return curr.item
 
@@ -201,7 +201,7 @@ class LinkedList:
             
         elif index == self.length:
             self.head = curr.next
-            while curr.next != None:
+            while curr.next:
                 curr = curr.next
             prev = curr.prev
             prev.next = None
@@ -221,7 +221,7 @@ class LinkedList:
     def to_list(self):
         listing = []
         curr = self.head
-        while curr != None:
+        while curr:
             listing.append(curr.item)
             curr = curr.next
         return listing
