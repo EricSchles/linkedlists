@@ -1,3 +1,5 @@
+#To Do:
+#Fix print_backwards() - closer.  Fix add_at and add_first
 class Node:
     def __init__(self,item=None,prev=None):
         self.item = item
@@ -59,12 +61,12 @@ class LinkedList:
                 
     def print_backwards(self):
         curr = self.head
-        while curr.next:
+        while curr != None:
             curr = curr.next
-        while curr:
+        while curr != None:
             print curr,
             curr = curr.prev
-        print
+        
         
     def pretty_print(self):
         curr = self.head
